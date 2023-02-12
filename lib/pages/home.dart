@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tugasakhircrud_firebase/components/card.dart';
 import 'package:tugasakhircrud_firebase/pages/add.dart';
+import 'package:tugasakhircrud_firebase/pages/local.dart';
 import 'package:tugasakhircrud_firebase/pages/view.dart';
 
 
@@ -35,19 +36,29 @@ Future getMembers() async {
           backgroundColor: Colors.red,
         ),
         BottomNavigationBarItem(
+          label: 'Add',
           icon: InkWell(
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (builder) => add()));
             },
-            child: Icon(Icons.add),
+            child: Column(
+              children: [
+                Icon(Icons.add),
+                
+              ],
+            ),
           ),
-          label: 'Add',
-          backgroundColor: Colors.green,
+          
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
+
+          icon: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (builder) => local()));
+            },
+            child: Icon(Icons.local_activity)),
+          label: 'local',
           backgroundColor: Colors.purple,
         ),
       ]),
